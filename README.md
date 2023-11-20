@@ -1,7 +1,69 @@
 <div align='center'>
 
 <h1>THIS IS A /GUI-calculator USING PYTHON Tkinter</h1>
-<p>Your code follows a clear and structured pattern for implementing a simple quiz game. Here's an overview of the working pattern: Welcome Message and Initial Input: The program starts with a welcome message, prompting the user to decide whether they want to play the game or not. python Copy code print("Welcome to our quiz") choice = input("Do you want to play this game? (yes/no): ") Main Game Loop (main_block function): The main_block function contains the main loop that controls the flow of the game. If the user chooses to play (yes), it calls the play function to start the quiz. If the user chooses not to play (no), the program exits. If the user enters an invalid choice, it prompts the user to try again. python Copy code while True: if choice.lower() == "yes": print("Let's play") play() elif choice.lower() == "no": print("Exit!") break else: print("You entered a wrong value") Quiz (play function): The play function contains the logic for asking questions and keeping track of the user's score. It uses a dictionary (answers) to store correct answers for each question. The user is prompted with questions, and their input is compared to the correct answer. The score is updated based on correct and incorrect answers. python Copy code score_gain += ask_question("India is a ________ country: ", answers['question1'], score_gain, score_loss) score_gain += ask_question("Capital of India: ", answers['question2'], score_gain, score_loss) # ... Repeat for other questions Input Validation: The program includes some basic input validation, checking if the user enters yes or no. If the user enters an invalid value, they are prompted to try again. python Copy code else: print("You entered a wrong value") Continuation or Exit: After each round of the quiz, the user is given the option to continue playing or exit the game. The program handles the user's choice and either continues the game or exits the loop. python Copy code choice = input("Do you want to continue this game? (yes/no): ") Overall, your code follows a clear flow, starting with user input, entering the main loop for the game, playing the quiz, and allowing the user to decide whether to continue or exit. It's a well-struct</p>
+<p>this code is to creates a simple calculator GUI using the Tkinter library in Python. 
+ Here's is the working pattern of this code:
+
+GUI Initialization:
+
+The code initializes a Tkinter window and sets its title to "calculator."
+It creates a frame within the window with a gray background.
+
+window = tk.Tk()
+window.title("calculator")
+frame = tk.Frame(master=window, bg="gray", width=50)
+frame.pack()
+Entry Widget:
+
+An entry widget is added to the frame, providing a space to display and input text.
+The widget has a raised relief, a border width of 20, and a width of 50 characters.
+
+entry = tk.Entry(master=frame, relief=tk.RAISED, borderwidth=20, width=50)
+entry.grid(row=0, column=3)
+Number Buttons and Operations:
+
+Buttons for digits 0-9 and various arithmetic operations are created using the tk.Button widget.
+Each button is associated with a command, which is a lambda function calling the no function with the respective digit or operation as an argument.
+
+button0 = tk.Button(master=frame, text="0", width=5, command=lambda: no(0))
+# ... (Similar buttons for digits 1-9 and arithmetic operations)
+Command Functions:
+
+The no function appends the specified digit or operation to the entry widget.
+The clear function clears the entry widget.
+The equal function evaluates the expression in the entry widget and displays the result.
+
+def no(n):
+    entry.insert(tk.END, n)
+
+def clear():
+    entry.delete(0, tk.END)
+
+def equal():
+    try:
+        y = str(eval(entry.get()))
+        entry.delete(0, tk.END)
+        entry.insert(0, y)
+    except:
+        mg.showinfo("error")
+Button Placement:
+
+The buttons are placed in the grid layout of the frame, with specific rows and columns.
+
+button0.grid(row=2, column=1, padx=5, pady=5)
+# ... (Grid placement for other buttons)
+Main Event Loop:
+
+The Tkinter main event loop (window.mainloop()) is started, allowing the GUI to handle user interactions.
+
+window.mainloop()
+The working pattern involves creating a GUI window with buttons for digits, arithmetic operations, and additional symbols. Users can interact with the calculator by clicking the buttons, and the entry widget displays the input and results. The code makes use of event-driven programming with Tkinter to respond to user actions.
+
+
+
+
+
+
 
 <h4> <span> · </span> <a href="https://github.com/MydeenRaahia//GUI-calculator/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/MydeenRaahia//GUI-calculator/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/MydeenRaahia//GUI-calculator/issues"> Request Feature </a> </h4>
 
